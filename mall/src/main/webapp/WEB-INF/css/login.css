@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	background:url(../images/login/91401.jpg);
+	background-attachment:fixed;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-color:#54bbca;
+}
+
+#box {
+	width:1003px;
+	height:770px;
+	margin:auto;
+}
+
+#top {
+	width:950px;
+	height:251px;
+	margin:45px auto;
+}
+#main {
+	width:450px;
+	height:329px;
+	margin:auto;
+}
+#form1 {
+	width:251px;
+	height:165px;
+}
+#name,#pass  {
+	width:135px;
+	height:20px;
+	float:left;
+	border-top:#b1b8bd solid 1px;
+	margin-top:5px;
+}
+#select {
+	border-top:#b1b8bd solid 1px;
+	margin-top:5px;
+}
+	
+#dl {
+	float:right;
+	margin:15px 13px 0px 0px;
+}
+#img {
+	margin:20px 0px 0px 20px;
+}
+#form1 img {
+	float:center;
+}
+#email,#pwd,#pwd1,#u{
+	
+	font-size: 12px;
+	color: red;
+}
+

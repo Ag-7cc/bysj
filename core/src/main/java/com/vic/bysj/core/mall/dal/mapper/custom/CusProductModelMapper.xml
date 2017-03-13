@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vic.bysj.core.mall.dal.mapper.custom.CusProductModelMapper">
+  
+  <resultMap id="selectByNavIdAndItemIdMap" type="com.vic.bysj.core.mall.dal.model.ProductModel">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="INTEGER" property="name" />
+    <result column="price" jdbcType="INTEGER" property="price" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="img_main" jdbcType="VARCHAR" property="imgMain" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+
+   <!-- <association property="id" column="id" javaType="com.vic.bysj.core.mall.dal.model.ProductItemModel">
+      <id column="id" jdbcType="BIGINT" property="id" />
+      <result column="product_id" jdbcType="BIGINT" property="productId" />
+      <result column="nav_id" jdbcType="BIGINT" property="navId" />
+      <result column="item_id" jdbcType="BIGINT" property="itemId" />
+      <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    </association>-->
+  </resultMap>
+  
+  <select id="selectByNavIdAndItemId" resultMap="selectByNavIdAndItemIdMap">
+    SELECT a.id,a.name,a.price,a.description,a.img_main,a.status,a.create_time,b.nav_id,b.item_id
+    FROM product a,r_product_item b
+    WHERE a.id = b.product_id
+    AND a.status = 1
+    AND b.nav_id = #{navId}
+    AND b.item_id = #{itemId}
+    ORDER BY a.create_time DESC
+  </select>
+
+</mapper>
